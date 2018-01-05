@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <form (ngSubmit)='submitDiary()' #diaryForm='ngForm' >
+      <!-- Date -->
+      <div class="form-group">
+        <label for="entrydate">Date</label>
+        <input type="date" class="form-control" placeholder="Date" id="entrydate" required [(ngModel)]="newDiary.date" name="date"  #date="ngModel">
+      
+        <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
+            <p> Date is Required</p>  
+        </div>
+      
+      </div>
+
+
+
+      <!-- Title -->
+      <div class="form-group">
+        <label for="entrytitle">Title</label>
+        <input type="text" class="form-control" placeholder="Title" id="entrytitle" required [(ngModel)]="newDiary.title" name="title"  #title="ngModel">
+  
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          <p> Title is Required</p>  
+        </div>
+
+      </div>
+      <!-- Highlight Title -->
+      <!-- Diary Entry -->
+      <div class="form-group">
+        <label for="entrycontent">Entry</label>
+        <textarea class="form-control" rows="3" placeholder="Write your thoughts!" id="entrycontent" required [(ngModel)]="newDiary.entry" name="entry"  #entry="ngModel"></textarea>
+      
+        <div [hidden]="entry.valid || entry.pristine" class="alert alert-danger">
+          <p> An entry is Required</p>  
+        </div>
+
+      </div>
+        
+      <!-- Edit Button to edit Entry -->
+
+      <!-- Delete Button to delete  Entry -->
+      <!-- Add New Diary Entry -->
+      <button type="submit" class="btn btn-success btn-lg">Add Diary Entry</button>
+    </form>
+
+  </div><!-- row -->
+</div> <!-- contianer-fluid -->
